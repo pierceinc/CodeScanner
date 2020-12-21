@@ -13,6 +13,11 @@ import SwiftUI
 /// a closure that will be called when scanning has finished. This will be sent the string that was detected or a `ScanError`.
 /// For testing inside the simulator, set the `simulatedData` property to some test data you want to send back.
 public struct CodeScannerView: UIViewControllerRepresentable {
+    public enum Result<String, Error> {
+        case success(String)
+        case failure(Error)
+    }
+    
     public enum ScanError: Error {
         case badInput, badOutput
     }
